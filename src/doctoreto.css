@@ -1,0 +1,508 @@
+@import url('../css/base.css');
+@import url('../css/header.css');
+@import url('../css/search.css');
+@import url('../css/specialties.css');
+@import url('../css/cities.css');
+@import url('../css/footer.css');
+
+@import url('./base.css');
+@import url('./header.css');
+@import url('./search.css');
+@import url('./specialties.css');
+@import url('./cities.css');
+@import url('./footer.css');
+
+
+/* Any global styles or overrides can go below the imports */
+/* افزودن فونت وزیر به پروژه */
+body,h2,button{font-family: 'Vazirmatn'  ;}
+@font-face {
+	font-family: 'Vazirmatn'  !important;
+	src: url('fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+		 url('fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+  }
+  @font-face {
+	font-family: 'Vazirmatn RD' !important;
+	src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
+		 url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+  }
+/* افزودن فونت وزیر به پروژه */
+  body {
+    font-family: 'Vazirmatn' !important ;
+    font-variation-settings: "wght" 400;
+    direction: rtl;
+}
+
+h1 {
+    font-variation-settings: "wght" 900;
+
+}
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.login-signup-btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 40px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    gap: 8px;
+    text-decoration: none;
+    color: rgb(71, 84, 103);
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-right: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.login-signup-btn i {
+    font-size: 16px;
+    color: rgb(71, 84, 103);
+}
+
+.login-signup-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.location-btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 40px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    gap: 8px;
+    text-decoration: none;
+    color: #007aff;
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-right: 0;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.location-btn span {
+    color: #007aff;
+    transition: color 0.2s ease;
+}
+
+.location-btn:hover span {
+    color: rgb(65, 135, 255);
+}
+
+
+/* Any global styles or overrides can go below the imports */
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.login-signup-btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 40px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    gap: 8px;
+    text-decoration: none;
+    color: rgb(71, 84, 103);
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-right: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.login-signup-btn i {
+    font-size: 16px;
+    color: rgb(71, 84, 103);
+}
+
+.login-signup-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.location-btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 40px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    gap: 8px;
+    text-decoration: none;
+    color: #007aff;
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-right: 0;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.location-btn span {
+    color: #000000;
+    transition: color 0.2s ease;
+    font-size: medium;
+}
+
+
+
+/* Hero Section Styles */
+.hero-section {
+    background-image: url("../images/bg-pattern.webp");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 65px;
+    position: relative;
+    background-color: rgb(52, 110, 209);
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: -24px;
+    padding-bottom: 0;
+    margin-top: 93px;
+}
+
+.hero-subtitle {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
+.hero-search {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 45px;
+}
+
+.hero-search input {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    font-size: 15px;
+    font-family: 'Vazirmatn', sans-serif;
+    color: gray;
+}
+
+.hero-search input:focus {
+    outline: none;
+}
+
+.hero-search  {
+    /* background: #007AFF; */
+    color: #fff;
+    border: none;
+    padding: 0 24px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ezZnlq {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f1f6ff;
+	cursor: pointer;
+	border: 0px;
+	outline: none;
+	padding: 0px 8px 0px 12px;
+}
+.dpNIUb {
+	display: flex;
+	align-items: center;
+}
+.search-btn{
+    background: #007AFF;
+    color: rgb(63, 98, 215);
+    border: none;
+ 
+    font-size: 14px;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    background-color:#f1f6ff;
+
+    float: right;
+}
+/* استایل های جدید برای منوی افقی */
+.main-nav {
+    position: relative;
+}
+
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    .hamburger-line {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #333;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        padding-top: 60px;
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hamburger-btn.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-btn.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+/* استایل جدید برای لوگو */
+.logo img {
+    width: 162px;
+    height: 30px;
+    object-fit: contain; /* حفظ تناسب تصویر */
+    display: block; /* جلوگیری از فاصله اضافی زیر تصویر */
+}
+@media (max-width: 768px) {
+    .logo img {
+        width: 130px;
+        height: 24px;
+    }
+}
+
+.header-content {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+  
+    height: 52px;
+    margin-top: 25px;
+}
+.header-left{display: contents;}
+.dkINsT {
+	display: flex;
+	flex-direction: column;
+	margin-top: -65px;
+	width: 100%;
+	border-radius: 12px;
+	position: relative;
+	z-index: 10;
+}
+.buQKWj {
+	display: flex;
+	flex-wrap: wrap;
+}
+.hxOoyY.hxOoyY {
+	width: calc(50% - 8px);
+	padding: 4px 4px 8px;
+	border-radius: 8px;
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	transition: 0.3s;
+	border: 1px solid rgb(234, 236, 240);
+	box-shadow: rgba(13, 34, 70, 0.02) 0px 20px 12px -2px, rgba(13, 34, 70, 0.04) 0px 29px 62px -4px;
+}
+a, a:hover, a:focus, a:active, a:visited {
+	color: rgb(57, 73, 89);
+	text-decoration: none;
+	background-color: transparent;
+}
+.OQvrz, .OQvrz:active, .OQvrz:hover, .OQvrz:focus {
+	text-decoration: none;
+	cursor: pointer;
+}
+.hxOoyY.hxOoyY:not(:first-child) {
+	margin-right: 24px;
+}
+.hxOoyY.hxOoyY.main {
+	margin-bottom: 0px;
+}
+.hxOoyY.hxOoyY {
+	border-radius: 12px;
+	padding: 12px 12px 24px;
+	flex-wrap: nowrap;
+	flex: 1 1 auto;
+}
+.cQDSWm {
+	max-width: 1140px;
+}
+.hxOoyY.hxOoyY {
+	/* width: calc(50% - 8px); */
+	width: 150px;
+	padding: 4px 4px 8px;
+	border-radius: 8px;
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	transition: 0.3s;
+	border: 1px solid rgb(234, 236, 240);
+	box-shadow: rgba(13, 34, 70, 0.02) 0px 20px 12px -2px, rgba(13, 34, 70, 0.04) 0px 29px 62px -4px;
+	height: 200px;
+}
+.iGPOVP {
+	border-radius: 8px;
+	overflow: hidden;
+	/* position: relative; */
+	margin-bottom: 8px;
+}
+.buQKWj {
+	display: flex;
+	flex-wrap: wrap;
+}
+.bCLrpS {
+	background-color: rgb(249, 250, 251);
+	position: relative;
+	padding-bottom: 86px;
+}
+.cGNGyv {
+	display: flex;
+}
+.cQDSWm {
+	width: 100%;
+	padding: 0px 15px;
+	margin: 0px auto;
+}
+.hxOoyY.hxOoyY.main .title {
+	font-weight: 600;
+}
+.evvYko {
+	transition: 0.3s;
+	text-align: center;
+	font-size: 18px;
+	line-height: 22px;
+	color: rgb(29, 41, 57);
+}
+/* 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0px;
+	font-weight: bold;
+	line-height: 1.5;
+} */.iqDuvZ {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	z-index: 30;
+}
+.hDWTdq {
+	display: flex;
+	justify-content: stretch;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 32px;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	margin-top: 50px;
+}
+.eUKLxc:not(:last-child) {
+	border-left: 1px dashed rgba(255, 255, 255, 0.34);
+}
+.eUKLxc {
+	flex: 1 1 0%;
+}
+.cDmtFY {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 24px;
+	direction: ltr;
+	margin: 0px 5px;
+	padding: 25px;
+	magin-top: 51px;
+}
+.iDYWXT {
+	font-weight: 500;
+	/* font-size: 14px; */
+	color: rgb(217, 231, 255);
+	line-height: 24px;
+	font-size: large;
+}
