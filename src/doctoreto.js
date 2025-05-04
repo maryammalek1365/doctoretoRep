@@ -21,4 +21,3 @@ window.addEventListener('resize', () => {
         hamburgerBtn.classList.remove('active');
         mainNav.classList.remove('active');
     }
-});
