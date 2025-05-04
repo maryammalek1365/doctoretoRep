@@ -848,7 +848,7 @@ a, a:hover, a:focus, a:active, a:visited {
 			background: rgb(65, 135, 255) !important;
 		}
 		.itYgVn {
-			margin: 64px auto;
+			margin: -89px auto;
 		}.hcDotQ.hcDotQ {
 			padding: 0px;
 		}
@@ -882,7 +882,7 @@ a, a:hover, a:focus, a:active, a:visited {
   }
   .iGHDvJ {
 	font-weight: 700;
-	font-size: 16px;
+	font-size: 28px;
 	line-height: 26px;
 	color: rgb(16, 24, 40);
 }
@@ -940,7 +940,7 @@ a, a:hover, a:focus, a:active, a:visited {
 	}
   }
   .bsvbES {
-	font-size: 8px;
+	font-size: 10px;
 	line-height: 18px;
 	font-weight: 400;
 	border-top: 1px solid rgb(234, 236, 240);
@@ -961,8 +961,8 @@ a, a:hover, a:focus, a:active, a:visited {
 	line-height: 24px;
 }.geBRlP > a {
 	color: rgb(29, 41, 57);
-	font-size: 14px;
-	font-weight: 600;
+	font-size: 17px;
+	font-weight: 700;
 	line-height: 24px;
 }
 a, a:hover, a:focus, a:active, a:visited {
@@ -1011,3 +1011,33 @@ audio, canvas, embed, iframe, img, object, svg, video {
 	  box-shadow: rgba(13, 34, 70, 0.02) 0px 20px 12px -2px, rgba(13, 34, 70, 0.04) 0px 29px 62px -4px;
 	}
   }
+  .show-all-button-2{top: 8px !important;position: relative;}
+  @media (min-width: 768px) {
+	.itYgVn {
+	  margin: 64px auto;
+	}
+  }
+  .GGkri.GGkri {
+	padding: 0px;
+}
+@media (min-width: 576px) {
+	.hcDotQ.hcDotQ {
+	  padding: 0px;
+	}
+  }
+  .cQDSWm {
+	width: 100%;
+	padding: 0px 15px;
+	margin: 0px auto;
+}
+@media (min-width: 576px) {
+	.jhnolY {
+	  border-radius: 12px;
+	  padding: 32px;
+	}
+  }
+  .jhnolY {
+	background-color: rgb(52, 110, 209);
+	padding: 32px 16px 32px 0px;
+	position: relative;
+}
