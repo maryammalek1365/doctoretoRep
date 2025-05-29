@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    .swiper-container {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background:#f00;"><img src="../images/clinic.webp" alt=""></div>
+    <div class="swiper-slide" style="background:#0f0;"><img src="../images/clinic2.webp" alt=""></div>
+    <div class="swiper-slide" style="background:#00f;"><img src="../images/consultation.webp" alt=""></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false
+    },
+    speed: 50000
+  });
+</script>
+
+</body>
+</html>

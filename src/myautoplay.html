@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper AutoPlay</title>
+    <!-- لینک فایل CSS Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        .swiper-slide {
+            background: #eee;
+            padding: 50px;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ساختار Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">اسلاید ۱</div>
+            <div class="swiper-slide">اسلاید ۲</div>
+            <div class="swiper-slide">اسلاید ۳</div>
+        </div>
+    </div>
+
+    <!-- لینک فایل JavaScript Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // تنظیمات Swiper
+        const swiper = new Swiper(".mySwiper", {
+            autoplay: {
+                delay: 2000, // تأخیر ۲ ثانیه بین اسلایدها
+                disableOnInteraction: false, // حتی اگر کاربر اسلاید را لمس کند، ادامه دهد
+            },
+            loop: true, // اسلایدر به صورت بی‌نهایت ادامه یابد
+        });
+    </script>
+</body>
+</html>
