@@ -131,3 +131,29 @@
     el: '.swiper-scrollbar',
   },
 });
+// Initialize Swiper
+  var swiper = new Swiper('.swiper-first', {
+  // Optional parameters
+ 
+  loop: true,
+ slidesPerView: 6,
+  spaceBetween: 29,
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+      clickable: true,
+          dynamicBullets: true,
+    dynamicMainBullets: 4 // ف
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});

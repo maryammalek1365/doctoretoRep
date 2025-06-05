@@ -3818,7 +3818,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 @media (min-width: 992px) {
   .lg\:text-18 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 28px;
   }
 }
@@ -4154,4 +4154,129 @@ ol, ul {
 
 .gap-3 {
 	gap: 8px;
+}.hidden{/* display:none; */}
+
+.p-4 {
+	padding: 12px;
+}
+.bg-primary-25 {
+	--tw-bg-opacity: 1;
+	background-color: rgb(236 243 255/var(--tw-bg-opacity));
+}
+.rounded-circle {
+	border-radius: 9999px;
+}
+.justify-center {
+	justify-content: center;
+}
+.items-center {
+	align-items: center;
+}
+.flex {
+	display: flex;
+}
+@media (min-width: 992px) {
+  .lg\:grid-cols-9 {
+    grid-template-columns: repeat(9,minmax(0,1fr));
+  }
+}
+@media (min-width: 992px) {
+  .lg\:grid {
+    display: grid;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:col-span-9 {
+    grid-column: span 9/span 9;
+  }
+}
+.border-b-gray-200 {
+	--tw-border-opacity: 1;
+	border-bottom-color: rgb(234 236 240/var(--tw-border-opacity));
+}
+span.hidden{display:none;}
+@media (min-width: 992px) {
+  .lg\:pb-16 {
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-gray-300 {
+    --tw-border-opacity: 1;
+    border-color: rgb(208 213 221/var(--tw-border-opacity));
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-solid {
+    border-style: solid;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-t {
+    border-top-width: 1px;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:block {
+    display: block;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:col-span-12 {
+    grid-column: span 12/span 12;
+  }
+}
+
+element {
+}
+@media (min-width: 992px) {
+  .lg\:pb-16 {
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-gray-300 {
+    --tw-border-opacity: 1;
+    border-color: rgb(208 213 221/var(--tw-border-opacity));
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-solid {
+    border-style: solid;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:border-t {
+    border-top-width: 1px;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:block {
+    display: block;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:col-span-12 {
+    grid-column: span 12/span 12;
+  }
+}
+@media (min-width: 992px) {
+  .lg\:order-3 {
+    order: 3;
+  }
+}
+.text-16 {
+	font-size: 18px;
+	line-height: 26px;
+}
+.text-gray-700 {
+	--tw-text-opacity: 1;
+	color: rgb(52 64 84/var(--tw-text-opacity));
+}
+.leading-6 {
+	line-height: 1.5rem;
+}
+.text-primary-500 {
+	--tw-text-opacity: 1;
+	color: rgb(65 135 255/var(--tw-text-opacity));
 }
