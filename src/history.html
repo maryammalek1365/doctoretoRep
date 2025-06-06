@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="search-container">
+  <input type="text" id="searchInput" placeholder="جستجو در سایت..." onfocus="showSearchHistory()">
+  <button onclick="performSearch()">جستجو</button>
+  
+  <div class="search-history-box" id="searchHistoryBox">
+    <div class="search-history-header">
+      <span>جستجوهای اخیر</span>
+      <button class="close-btn" onclick="hideSearchHistory()">×</button>
+    </div>
+    <div class="search-history-items" id="searchHistoryItems">
+      <!-- آیتم‌های جستجو اینجا نمایش داده می‌شوند -->
+    </div>
+    
+    <!-- بخش پرمتقاضی‌ترین تخصص‌ها -->
+    <div class="popular-specialties">
+      <div class="popular-header">پرمتقاضی‌ترین تخصص‌ها</div>
+      <div class="popular-items">
+        <div class="popular-item" onclick="searchSpecialty('کودکان')">
+          <span class="popular-item-icon">👶</span>
+          <span class="popular-item-text">کودکان</span>
+        </div>
+        <div class="popular-item" onclick="searchSpecialty('زنان')">
+          <span class="popular-item-icon">👩</span>
+          <span class="popular-item-text">زنان</span>
+        </div>
+        <div class="popular-item" onclick="searchSpecialty('ارتوپدی')">
+          <span class="popular-item-icon">🦴</span>
+          <span class="popular-item-text">ارتوپدی</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+ 
+ /* به CSS این کلاس را اضافه کنید */
+.search-highlight {
+  background-color: yellow;
+  padding: 0 2px;
+  border-radius: 2px;
+}   
+    .search-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+#searchInput {
+  padding: 10px 15px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-history-box {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 330px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 5px;
+}
+
+.search-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  color: #888;
+  font-size: 20px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.search-history-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-history-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-history-item:hover {
+  background-color: #f5f5f5;
+}
+
+.search-history-item:last-child {
+  border-bottom: none;
+}
+
+.delete-history-item {
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.delete-history-item:hover {
+  color: #f44336;
+}
+
+.popular-specialties {
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.popular-header {
+  padding: 5px 15px;
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.popular-items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.popular-item {
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: #f0f7ff;
+  border-radius: 20px;
+  color: #4285f4;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.popular-item:hover {
+  background-color: #d6e7ff;
+  transform: translateY(-2px);
+}
+
+.popular-item-icon {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.popular-item-text {
+  margin-right: 5px;
+}
+</style>
+<script>
+    // کلید ذخیره سازی تاریخچه در localStorage
+const SEARCH_HISTORY_KEY = 'searchHistory';
+
+// نمایش تاریخچه جستجو هنگام فوکوس
+function showSearchHistory() {
+  const historyBox = document.getElementById('searchHistoryBox');
+  historyBox.style.display = 'block';
+  loadSearchHistory();
+}
+
+// مخفی کردن تاریخچه جستجو
+function hideSearchHistory() {
+  document.getElementById('searchHistoryBox').style.display = 'none';
+}
+
+// بارگذاری و نمایش تاریخچه جستجو
+function loadSearchHistory() {
+  const historyItems = document.getElementById('searchHistoryItems');
+  historyItems.innerHTML = '';
+  
+  const searches = getSearchHistory();
+  
+  if (searches.length === 0) {
+    historyItems.innerHTML = '<div class="search-history-item" style="justify-content: center; color: #888;">هیچ جستجویی انجام نشده است</div>';
+    return;
+  }
+  
+  searches.forEach((term, index) => {
+    const item = document.createElement('div');
+    item.className = 'search-history-item';
+    
+    const termSpan = document.createElement('span');
+    termSpan.textContent = term;
+    termSpan.onclick = () => {
+      document.getElementById('searchInput').value = term;
+      performSearch();
+    };
+    
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-history-item';
+    deleteBtn.innerHTML = '×';
+    deleteBtn.onclick = (e) => {
+      e.stopPropagation();
+      removeFromSearchHistory(index);
+      loadSearchHistory();
+    };
+    
+    item.appendChild(termSpan);
+    item.appendChild(deleteBtn);
+    historyItems.appendChild(item);
+  });
+}
+
+// دریافت تاریخچه از localStorage
+function getSearchHistory() {
+  const history = localStorage.getItem(SEARCH_HISTORY_KEY);
+  return history ? JSON.parse(history) : [];
+}
+
+// اضافه کردن جستجو به تاریخچه
+function addToSearchHistory(term) {
+  if (!term.trim()) return;
+  
+  let searches = getSearchHistory();
+  searches = searches.filter(item => item.toLowerCase() !== term.toLowerCase());
+  searches.unshift(term);
+  
+  if (searches.length > 10) {
+    searches = searches.slice(0, 10);
+  }
+  
+  localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(searches));
+}
+
+// حذف آیتم از تاریخچه
+function removeFromSearchHistory(index) {
+  let searches = getSearchHistory();
+  searches.splice(index, 1);
+  localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(searches));
+}
+
+// جستجوی تخصص‌های پرکاربرد
+function searchSpecialty(specialty) {
+  document.getElementById('searchInput').value = specialty;
+  performSearch();
+}
+
+// انجام جستجو
+// تابع performSearch را با این نسخه جایگزین کنید
+function performSearch() {
+  const searchTerm = document.getElementById('searchInput').value.trim();
+  
+  if (!searchTerm) {
+    alert('لطفاً عبارت جستجو را وارد کنید');
+    return;
+  }
+  
+  addToSearchHistory(searchTerm);
+  hideSearchHistory();
+  
+  // 1. روش اول: جستجو در صفحه فعلی
+  searchInCurrentPage(searchTerm);
+  
+  // 2. روش دوم: ارسال به صفحه جستجو (حالت پیشرفته)
+  // window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+}
+
+// تابع جدید برای جستجو در صفحه فعلی
+function searchInCurrentPage(term) {
+  // پاکسازی هایلایت‌های قبلی
+  clearHighlights();
+  
+  // اگر صفحه شما محتوای داینامیک دارد، این بخش باید اصلاح شود
+  const pageContent = document.body.innerHTML;
+  const regex = new RegExp(term, 'gi');
+  
+  // جایگزینی متن یافت شده با نسخه هایلایت شده
+  const highlightedContent = pageContent.replace(
+    regex, 
+    match => `<span class="search-highlight">${match}</span>`
+  );
+  
+  document.body.innerHTML = highlightedContent;
+  
+  // اسکرول به اولین نتیجه
+  const firstResult = document.querySelector('.search-highlight');
+  if (firstResult) {
+    firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+// تابع پاکسازی هایلایت‌ها
+function clearHighlights() {
+  const highlights = document.querySelectorAll('.search-highlight');
+  highlights.forEach(highlight => {
+    const parent = highlight.parentNode;
+    parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+  });
+}
+
+
+// مخفی کردن باکس هنگام کلیک خارج از آن
+document.addEventListener('click', function(event) {
+  const searchContainer = document.querySelector('.search-container');
+  const isClickInside = searchContainer.contains(event.target);
+  
+  if (!isClickInside) {
+    hideSearchHistory();
+  }
+});
+
+// بارگذاری اولیه تاریخچه
+document.addEventListener('DOMContentLoaded', function() {
+  loadSearchHistory();
+});
+</script>
+
+
+<p>
+    کودکان ما در حال حاضر
+</p>
+<p>
+    کودکان دیروز
+</p>
+</body>
+</html>

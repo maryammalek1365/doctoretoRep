@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<!-- HTML -->
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="جستجو در سایت...">
+  <button onclick="searchSite()">جستجو</button>
+</div>
+
+<!-- CSS -->
+<style>
+.search-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#searchInput {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+function searchSite() {
+  // دریافت عبارت جستجو
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  
+  if (!searchTerm) {
+    alert('لطفاً عبارت جستجو را وارد کنید');
+    return;
+  }
+  
+  // جستجو در تمام محتوای صفحه
+  const pageText = document.body.innerText.toLowerCase();
+  const found = pageText.includes(searchTerm);
+  
+  if (found) {
+    // اگر پیدا شد، به اولین موقعیت اسکرول میکند
+    const regex = new RegExp(searchTerm, 'gi');
+    const matches = [...document.body.innerHTML.matchAll(regex)];
+    
+    if (matches.length > 0) {
+      const firstMatch = matches[0];
+      const element = document.createElement('div');
+      element.id = 'search-highlight';
+      element.style.position = 'absolute';
+      element.style.top = '0';
+      element.style.backgroundColor = 'yellow';
+      document.body.prepend(element);
+      
+      // حذف هایلایت قبلی اگر وجود داشت
+      const oldHighlight = document.getElementById('search-highlight');
+      if (oldHighlight) oldHighlight.remove();
+      
+      alert(`عبارت "${searchTerm}" یافت شد. صفحه به اولین نتیجه اسکرول شد.`);
+    }
+  } else {
+    alert(`عبارت "${searchTerm}" یافت نشد.`);
+  }
+}
+</script>
+
+
+
+مادر
+
+</body>
+</html>
