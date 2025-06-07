@@ -4280,3 +4280,203 @@ element {
 	--tw-text-opacity: 1;
 	color: rgb(65 135 255/var(--tw-text-opacity));
 }
+/* style serch box  */
+
+ 
+ 
+ /* به CSS این کلاس را اضافه کنید */
+.search-highlight {
+  background-color: yellow;
+  padding: 0 2px;
+  border-radius: 2px;
+}   
+    .search-container {
+  position: relative;
+  /* display: inline-block;
+  margin: 20px; */
+}
+
+#searchInput {
+  padding: 10px 15px;
+  width: 300px;
+  /* border: 1px solid #ddd; */
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-history-box {
+  display: none;
+  position: absolute;
+  top: 261px;
+  left: 36px;
+  width: 599px;
+  background: white;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+  z-index: 1000;
+  margin-top: 5px;
+  /* max-height: 800px; */
+  /* overflow-y: auto; */
+  color: grey;
+  height: 300px;
+}
+
+.search-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* padding: 10px 15px; */
+  /* border-bottom: 1px solid #eee; */
+  /* font-weight: bold; */
+  width: 160px;
+  font-size: medium;
+  float: right;
+  position: relative;
+  left: 173px;
+}
+
+.close-btn {
+  background: none;
+  color: #888;
+  font-size: 20px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.search-history-items {
+  max-height: 300px;
+  /* overflow-y: auto; */
+  /* contain-intrinsic-block-size: auto 100px; */
+  width: 80px;
+  display: flex;
+}
+
+.search-history-item {
+  /* padding: 10px 15px; */
+  cursor: pointer;
+  /* border-bottom: 1px solid #f5f5f5; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  background-color: rgb(238, 238, 238);
+  float: right;
+  justify-content: center;
+  /* margin-right: -50px; */
+  position: relative;
+  left: 159px;
+}
+
+.search-history-item:hover {
+  background-color: #f5f5f5;
+}
+
+.search-history-item:last-child {
+  border-bottom: none;
+}
+
+.delete-history-item {
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.delete-history-item:hover {
+  color: #f44336;
+}
+
+.popular-specialties {
+  /* border-top: 1px solid #eee; */
+  /* padding: 10px 0; */
+  background-color: #f9f9f9;
+}
+
+.popular-header {
+  padding: 5px 15px;
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.popular-items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.popular-item {
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: #f0f7ff;
+  border-radius: 20px;
+  color: #4285f4;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.popular-item:hover {
+  background-color: #d6e7ff;
+  transform: translateY(-2px);
+}
+
+.popular-item-icon {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.popular-item-text {
+  margin-right: 5px;
+}
+
+.popular-specialties {
+  /* display: flex !important; */
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* height: auto !important; */
+  color: black !important;
+  background: white !important;
+  z-index: 9999 !important;
+  width: 363px;
+  height: 175px;
+  margin-top: 50px;
+}
+.khEbzC.khEbzC {
+	opacity: 0.5;
+	display: block;
+	margin: 0px 4px;
+}
+.dTAIXf {
+	fill: rgb(152, 168, 191);
+	width: 20px;
+	min-width: 20px;
+	max-width: 20px;
+	height: 20px;
+	min-height: 20px;
+	max-height: 20px;
+}

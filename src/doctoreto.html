@@ -63,12 +63,15 @@
         </div>
     </header>
 
+
+<!---->
+ 
     <section class="hero-section">
-        <div class="container">
+        <div class="container search-container ">
             <div class="hero-content">
                 <h2 class="hero-title"> دکتـــرِتو</h2>
                 <h3 class="hero-subtitle">نوبت دهی اینترنتی و مشاوره آنلاین پزشکان ایران</h3>
-                <div class="hero-search">
+                <div class="hero-search search-container">
                     <button class="search-btn">
 
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" class="sc-9538451b-6 bjfYCd sc-5feff41b-0 dkXQGN" style="
@@ -88,14 +91,52 @@
                 "><path d="M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257"></path></svg></button>
 
             </button>
-            <div class="sc-cde34471-0 dpNIUb"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 25" class="sc-5feff41b-0 zfFDS sc-9538451b-7 hgTJYC" style="
+            <div class="sc-cde34471-0 dpNIUb"  onclick="performSearch()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 25" class="sc-5feff41b-0 zfFDS sc-9538451b-7 hgTJYC" style="
                 fill: gray;
                 width: 20px;
             "><path d="M2.75 12a8.75 8.75 0 1 1 17.5 0 8.75 8.75 0 0 1-17.5 0M11.5 1.75C5.84 1.75 1.25 6.34 1.25 12S5.84 22.25 11.5 22.25 21.75 17.66 21.75 12 17.16 1.75 11.5 1.75m9.03 18.22a.75.75 0 1 0-1.06 1.06l2 2a.75.75 0 1 0 1.06-1.06z" clip-rule="evenodd"></path></svg></div>
-                <input type="text" placeholder="نام پزشک، تخصص، بیماری و  ..." aria-label="جستجوی پزشک">
+                <input type="text" placeholder="نام پزشک، تخصص، بیماری و  ..." aria-label="جستجوی پزشک"
+                id="searchInput" 
+                 onfocus="showSearchHistory()"
+                >
 
                 </div>
             </div>
+ <div class="search-history-box" id="searchHistoryBox">
+    <div class="search-history-header">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19" class="sc-5feff41b-0 dTAIXf sc-d25536e4-3 khEbzC"><path fill="#98A8BF" fill-rule="evenodd" d="M2.063 9.5A6.94 6.94 0 0 1 9 2.563 6.94 6.94 0 0 1 15.938 9.5 6.94 6.94 0 0 1 9 16.438 6.94 6.94 0 0 1 2.063 9.5M9 1.438A8.065 8.065 0 0 0 .938 9.5 8.065 8.065 0 0 0 9 17.563 8.065 8.065 0 0 0 17.063 9.5 8.065 8.065 0 0 0 9 1.438m.285 4.694a.563.563 0 0 0-1.125 0v3.075c0 .358.12.716.29 1.011.168.295.414.581.72.763l2.324 1.387a.563.563 0 0 0 .577-.966l-2.325-1.388h-.002a1 1 0 0 1-.317-.353 1 1 0 0 1-.142-.454z" clip-rule="evenodd"></path></svg>
+      <span>
+     جستجو های اخیر:
+    </span>
+ 
+    </div>
+    <div class="search-history-items" id="searchHistoryItems">
+      <!-- آیتم‌های جستجو اینجا نمایش داده می‌شوند -->
+    </div>
+    
+    <!-- بخش پرمتقاضی‌ترین تخصص‌ها -->
+    <div class="popular-specialties">
+      <div class="popular-header">پرمتقاضی‌ترین تخصص‌ها</div>
+      <div class="popular-items">
+        <div class="popular-item" onclick="searchSpecialty('کودکان')">
+       
+          <span class="popular-item-text">کودکان</span>
+        </div>
+        <div class="popular-item" onclick="searchSpecialty('زنان')">
+        
+          <span class="popular-item-text">زنان</span>
+        </div>
+        <div class="popular-item" onclick="searchSpecialty('ارتوپدی')">
+       
+          <span class="popular-item-text">ارتوپدی</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
         </div>
 
 
@@ -376,17 +417,6 @@
   });
 </script>
 
-<!-- <script>
-  new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false
-    },
-    speed: 5000
-  });
-</script> -->
+<script src="../src/doctoreto.js"></script>
 </body>
 </html>
