@@ -5,14 +5,14 @@ const SEARCH_HISTORY_KEY = 'searchHistory';
 // نمایش تاریخچه جستجو هنگام فوکوس
 function showSearchHistory() {
   const historyBox = document.getElementById('searchHistoryBox');
-  historyBox.style.display = 'ruby';
+  historyBox.style.display = 'block';
   loadSearchHistory();
 }
 
-// // مخفی کردن تاریخچه جستجو
- function hideSearchHistory() {
+// مخفی کردن تاریخچه جستجو
+function hideSearchHistory() {
   document.getElementById('searchHistoryBox').style.display = 'none';
- }
+}
 
 // بارگذاری و نمایش تاریخچه جستجو
 function loadSearchHistory() {
