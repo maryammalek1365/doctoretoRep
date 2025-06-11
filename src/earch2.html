@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جستجو در سایت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .result {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="searchInput" placeholder="جستجو کنید..." onkeyup="search()">
+    <div id="resultsContainer">
+        <!-- نتایج جستجو در اینجا قرار می‌گیرند -->
+    </div>
+
+    <script>
+        // آرایه‌ای از داده‌ها برای جستجو
+        const data = [
+            "کودکان",
+            "نوجوانان",
+            "بزرگسالان",
+            "پزشکی کودکان",
+            "پزشکی بزرگسالان",
+            "ادبیات فارسی",
+            "علم کامپیوتر",
+            "تکنولوژی اطلاعات",
+            "مسائل اجتماعی",
+            "محیط زیست"
+        ];
+
+        // تابع برای نمایش نتایج
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = ''; // پاک‌سازی نتایج قبلی
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div>نتیجه‌ای یافت نشد.</div>';
+            } else {
+                results.forEach(result => {
+                    const div = document.createElement('div');
+                    div.className = 'result';
+                    div.textContent = result;
+                    resultsContainer.appendChild(div);
+                });
+            }
+        }
+
+        // تابع جستجو
+        function search() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const filteredResults = data.filter(item => item.toLowerCase().includes(input));
+            displayResults(filteredResults);
+        }
+
+        // نمایش تمام داده‌ها هنگام بارگذاری صفحه
+        window.onload = () => {
+            displayResults(data);
+        };
+    </script>
+
+</body>
+</html>
+

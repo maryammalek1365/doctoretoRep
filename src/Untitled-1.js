@@ -34,7 +34,7 @@ function loadSearchHistory() {
     termSpan.textContent = term;
     termSpan.onclick = () => {
       document.getElementById('searchInput').value = term;
-      performSearch();
+     search();
     };
     
     const deleteBtn = document.createElement('button');
@@ -83,52 +83,42 @@ function removeFromSearchHistory(index) {
 // جستجوی تخصص‌های پرکاربرد
 function searchSpecialty(specialty) {
   document.getElementById('searchInput').value = specialty;
-  performSearch();
+ search();
 }
 
 // انجام جستجو
 // تابع performSearch را با این نسخه جایگزین کنید
-function performSearch() {
-  const searchTerm = document.getElementById('searchInput').value.trim();
-  
-  if (!searchTerm) {
-    alert('لطفاً عبارت جستجو را وارد کنید');
-    return;
-  }
-  
-  addToSearchHistory(searchTerm);
-  hideSearchHistory();
-  
-  // 1. روش اول: جستجو در صفحه فعلی
-  searchInCurrentPage(searchTerm);
-  
-  // 2. روش دوم: ارسال به صفحه جستجو (حالت پیشرفته)
-  // window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
-}
+// // ...existing code...
+// function performSearch() {
+//   document.getElementById('searchStatus').textContent = 'در حال جستجو...';
+//   const searchTerm = document.getElementById('searchInput').value.trim();
+//   if (!searchTerm) {
+//     alert('لطفاً عبارت جستجو را وارد کنید');
+//     document.getElementById('searchStatus').textContent = '';
+//     return;
+//   }
+//   addToSearchHistory(searchTerm);
+//   hideSearchHistory();
+//   searchInCurrentPage(searchTerm);
+//   document.getElementById('searchStatus').textContent = 'جستجو انجام شد!';
+// }
+// ...existing code...
 
 // تابع جدید برای جستجو در صفحه فعلی
-function searchInCurrentPage(term) {
-  // پاکسازی هایلایت‌های قبلی
-  clearHighlights();
-  
-  // اگر صفحه شما محتوای داینامیک دارد، این بخش باید اصلاح شود
-  const pageContent = document.body.innerHTML;
-  const regex = new RegExp(term, 'gi');
-  
-  // جایگزینی متن یافت شده با نسخه هایلایت شده
-  const highlightedContent = pageContent.replace(
-    regex, 
-    match => `<span class="search-highlight">${match}</span>`
-  );
-  
-  document.body.innerHTML = highlightedContent;
-  
-  // اسکرول به اولین نتیجه
-  const firstResult = document.querySelector('.search-highlight');
-  if (firstResult) {
-    firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-}
+// function searchInCurrentPage(term) {
+//   clearHighlights();
+//   const container = document.getElementById('resultsContainer'); // Make sure this ID exists in your HTML
+//   if (!container) return;
+//   const regex = new RegExp(term, 'gi');
+//   container.innerHTML = container.innerHTML.replace(
+//     regex,
+//     match => `<span class="search-highlight">${match}</span>`
+//   );
+//   const firstResult = container.querySelector('.search-highlight');
+//   if (firstResult) {
+//     firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+//   }
+// }
 
 // تابع پاکسازی هایلایت‌ها
 function clearHighlights() {
@@ -154,3 +144,48 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   loadSearchHistory();
 });
+// Example data array for search
+const data = [
+  "کودکان",
+  "نوجوانان",
+  "بزرگسالان",
+  "پزشکی کودکان",
+  "پزشکی بزرگسالان",
+  "ادبیات فارسی",
+  "علم کامپیوتر",
+  "تکنولوژی اطلاعات",
+  "مسائل اجتماعی",
+  "محیط زیست"
+];
+// ...existing code...
+function search() {
+  const input = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (input === "") {
+    // اگر ورودی خالی بود، نتایج را پاک کن
+    document.getElementById('resultsContainer').innerHTML = '';
+    return;
+  }
+  const filteredResults = data.filter(item => item.toLowerCase().includes(input));
+  displayResults(filteredResults);
+}
+function displayResults(results) {
+  const resultsContainer = document.getElementById('resultsContainer');
+  resultsContainer.innerHTML = '';
+  const searchTerm = document.getElementById('searchInput').value.trim();
+  if (results.length === 0) {
+    resultsContainer.innerHTML = '<div>No results found.</div>';
+  } else {
+    results.forEach(result => {
+      const div = document.createElement('div');
+      div.className = 'result';
+      if (searchTerm) {
+        // Highlight the search term
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        div.innerHTML = result.replace(regex, '<span class="search-highlight">$1</span>');
+      } else {
+        div.textContent = result;
+      }
+      resultsContainer.appendChild(div);
+    });
+  }
+}
