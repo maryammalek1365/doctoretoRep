@@ -3436,6 +3436,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .fWWRVf {
 	text-align: right;
 	width: 100%;
+	margin-top: 90px;
 }
 @media (min-width: 768px) {
   .iGHDvJ {
@@ -4487,7 +4488,8 @@ button {
 .khEbzC.khEbzC {
 	opacity: 0.5;
 	display: block;
-	margin: 0px 4px;
+	/* margin: 0px 12px; */
+	margin-right: 20px;
 }
 .dTAIXf {
 	fill: rgb(152, 168, 191);
