@@ -4344,7 +4344,7 @@ button {
   width: 160px;
   font-size: medium;
   float: right;
-  position: relative;
+  /* position: relative; */
   left: 173px;
   margin-top: 27px;
 }
@@ -4387,12 +4387,13 @@ button {
   float: right;
   justify-content: space-between;
   /* margin-right: -50px; */
-  position: relative;
+  /* position: relative; */
   left: 159px;
   margin-right: 9px;
   border-radius: 6px;
   height: 26px;
   color: rgb(44,55,70);
+  margin-top: 18px;
 }
 
 .search-history-item:hover {
@@ -4514,7 +4515,7 @@ button {
 	color: rgb(2 10 18);
 	border: 0px;
 	border-radius: inherit;
-	background-color: wheat;
+	background-color: rgb(255, 255, 255);
 	flex-grow: 1;
 	/* width: 1px; */
 	flex-shrink: 1;
@@ -4522,26 +4523,41 @@ button {
 	/* padding: 0px 12px; */
 }
 .search-highlight {
-  background-color: yellow;
-  color: black;
+  background-color: rgb(241, 246, 255);
+  color: rgb(63, 98, 215);
   padding: 0 2px;
   border-radius: 2px;
 }
 #resultsContainer {
-  position: static; /* or remove this line if you want it in normal flow */
+  position: absolute; /* or remove this line if you want it in normal flow */
+  top: 296px;
   width: 100%;
-  max-width: 600px;
-  min-width: 250px;
-  min-height: 50px;
+  max-width: 561px;
+  min-width: 253px;
+  min-height: 213px;
   max-height: 400px;
   overflow-y: auto;
   background-color: #fff;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 4px;
   z-index: 1000;
   opacity: 1;
   margin-top: 10px;
   color: #222;
   font-size: 16px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  /* box-shadow: 0 2px 10px rgba(0,0,0,0.07); */
 }
+#resultsContainer .result{
+	  padding: 10px 15px;
+	  cursor: pointer;
+	  /* border-bottom: 1px solid #f5f5f5; */
+	  display: flex;
+	  align-items: center;
+	  /* justify-content: flex-end; */
+	  font-weight: 500;
+	  font-size: 14px;
+	  color: rgb(44, 55, 70);
+	  margin-right: 4px;
+}
+
+ 

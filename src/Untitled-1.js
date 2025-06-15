@@ -202,3 +202,16 @@ function search() {
   // مخفی کردن سرچ‌باکس وقتی نتیجه نمایش داده می‌شود
   document.getElementById('searchHistoryBox').style.display = 'none';
 }
+const searchInput = document.getElementById('searchInput');
+const resultsContainer = document.getElementById('resultsContainer');
+
+searchInput.addEventListener('input', function() {
+  resultsContainer.style.display = 'none'; // مخفی کردن نتایج هنگام تایپ
+
+  // فرضاً اینجا جستجو انجام می‌شود (مثلاً با fetch)
+  setTimeout(() => {
+    // بعد از اتمام جستجو
+    resultsContainer.innerHTML = 'نتایج جستجو ...'; // نتایج را قرار بدهید
+    resultsContainer.style.display = 'block'; // نمایش نتایج
+  }, 1000); // شبیه‌سازی تاخیر جستجو
+});
