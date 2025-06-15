@@ -252,14 +252,10 @@ h1 {
     background: #007AFF;
     color: rgb(63, 98, 215);
     border: none;
- 
     font-size: 14px;
-
     cursor: pointer;
     transition: background-color 0.2s ease;
-
     background-color:#f1f6ff;
-
     float: right;
 }
 /* ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§Ãƒâ€ºÃ…â€™Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§Ãƒâ€ºÃ…â€™ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯Ãƒâ€ºÃ…â€™ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§Ãƒâ€ºÃ…â€™ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã‹â€ Ãƒâ€ºÃ…â€™ ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ€ºÃ…â€™ */
@@ -4530,7 +4526,7 @@ button {
 }
 #resultsContainer {
   position: absolute; /* or remove this line if you want it in normal flow */
-  top: 296px;
+  top: 289px;
   width: 100%;
   max-width: 561px;
   min-width: 253px;
@@ -4560,4 +4556,12 @@ button {
 	  margin-right: 4px;
 }
 
- 
+ input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color:  white!important;
+    /* color: fieldtext !important; */
+}
+input:focus , input:visited , input::target-text{
+	background-color: white !important;
+}
