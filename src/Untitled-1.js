@@ -86,39 +86,7 @@ function searchSpecialty(specialty) {
  search();
 }
 
-// انجام جستجو
-// تابع performSearch را با این نسخه جایگزین کنید
-// // ...existing code...
-// function performSearch() {
-//   document.getElementById('searchStatus').textContent = 'در حال جستجو...';
-//   const searchTerm = document.getElementById('searchInput').value.trim();
-//   if (!searchTerm) {
-//     alert('لطفاً عبارت جستجو را وارد کنید');
-//     document.getElementById('searchStatus').textContent = '';
-//     return;
-//   }
-//   addToSearchHistory(searchTerm);
-//   hideSearchHistory();
-//   searchInCurrentPage(searchTerm);
-//   document.getElementById('searchStatus').textContent = 'جستجو انجام شد!';
-// }
-// ...existing code...
 
-// تابع جدید برای جستجو در صفحه فعلی
-// function searchInCurrentPage(term) {
-//   clearHighlights();
-//   const container = document.getElementById('resultsContainer'); // Make sure this ID exists in your HTML
-//   if (!container) return;
-//   const regex = new RegExp(term, 'gi');
-//   container.innerHTML = container.innerHTML.replace(
-//     regex,
-//     match => `<span class="search-highlight">${match}</span>`
-//   );
-//   const firstResult = container.querySelector('.search-highlight');
-//   if (firstResult) {
-//     firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-//   }
-// }
 
 // تابع پاکسازی هایلایت‌ها
 function clearHighlights() {
@@ -214,4 +182,25 @@ searchInput.addEventListener('input', function() {
     resultsContainer.innerHTML = 'نتایج جستجو ...'; // نتایج را قرار بدهید
     resultsContainer.style.display = 'block'; // نمایش نتایج
   }, 1000); // شبیه‌سازی تاخیر جستجو
+});
+// تابع جستجو
+// function search(query) {
+//   // اینجا کد جستجوی خود را قرار دهید
+//   console.log("در حال جستجو برای:", query);
+// }
+
+// // اضافه کردن event listener به همه آیتم‌ها
+// document.querySelectorAll('.search-history-items').forEach(function(item) {
+//   item.addEventListener('click', function() {
+//     var query = this.textContent;
+//     document.getElementById('search-input').value = query; // مقدار را به input منتقل می‌کند
+//    search(query); // تابع جستجو را اجرا می‌کند
+//   });
+// });
+document.getElementById('searchHistoryItems').addEventListener('click', function(e) {
+  if (e.target.classList.contains('search-history-items')) {
+    const term = e.target.textContent;
+    document.getElementById('searchInput').value = term;
+    search();
+  }
 });
