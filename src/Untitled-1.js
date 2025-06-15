@@ -189,3 +189,16 @@ function displayResults(results) {
     });
   }
 }
+function search() {
+  const input = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (input === "") {
+    document.getElementById('resultsContainer').innerHTML = '';
+    // نمایش دوباره سرچ‌باکس اگر ورودی خالی شد
+    document.getElementById('searchHistoryBox').style.display = 'block';
+    return;
+  }
+  const filteredResults = data.filter(item => item.toLowerCase().includes(input));
+  displayResults(filteredResults);
+  // مخفی کردن سرچ‌باکس وقتی نتیجه نمایش داده می‌شود
+  document.getElementById('searchHistoryBox').style.display = 'none';
+}
