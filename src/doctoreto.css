@@ -4567,3 +4567,4 @@ button {
 input:focus , input:visited , input::target-text{
 	background-color: white !important;
 }
+.seemore{color: #007AFF !important;background-color: #f9fafb !important;} 
